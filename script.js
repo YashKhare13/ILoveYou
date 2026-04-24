@@ -10,6 +10,7 @@ const gifStages = [
 ]
 
 const photoStages = [
+    "images/photo10.png",
     "images/photo1.jpg",
     "images/photo2.jpg",
     "images/photo3.jpg",
@@ -143,12 +144,14 @@ function swapGif(src) {
 }
 
 function swapPhoto(src) {
-    lovePhoto.style.opacity = '0'
+    lovePhoto.style.opacity = "0"
+    lovePhoto.style.transform = "scale(0.96)"
 
     setTimeout(() => {
         lovePhoto.src = src
-        lovePhoto.style.opacity = '1'
-    }, 200)
+        lovePhoto.style.opacity = "1"
+        lovePhoto.style.transform = "scale(1)"
+    }, 220)
 }
 
 function enableRunaway() {
