@@ -108,8 +108,8 @@ function handleNoClick() {
 const scaleValue = Math.min(1 + (noClickCount * 0.08), 1.45)
 
 yesBtn.style.transform = `scale(${scaleValue})`
-yesBtn.style.maxWidth = "88vw"
-yesBtn.style.width = "min(320px, 88vw)"
+yesBtn.style.maxWidth = "260px"
+yesBtn.style.width = "auto"
 yesBtn.style.whiteSpace = "normal"
 yesBtn.style.wordBreak = "break-word"
 yesBtn.style.flexShrink = "0"
