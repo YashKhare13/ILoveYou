@@ -70,6 +70,30 @@ h1 {
     animation: wiggle 2s ease-in-out infinite;
 }
 
+.photo-container {
+    display: flex;
+    justify-content: center;
+    margin: 8px auto 10px;
+    width: 100%;
+}
+
+#love-photo {
+    width: 100%;
+    max-width: 280px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 22px;
+
+    border: 3px solid rgba(255,255,255,0.65);
+
+    box-shadow:
+        0 10px 30px rgba(214, 51, 132, 0.18),
+        0 0 18px rgba(255, 182, 193, 0.35);
+
+    transition: all 0.35s ease;
+    opacity: 1;
+}
+
 @keyframes wiggle {
     0%, 100% { transform: rotate(-1deg); }
     50% { transform: rotate(1deg); }
@@ -107,22 +131,30 @@ h1 {
     align-items: center;
     justify-content: center;
 
+    width: min(90vw, 320px);
+    min-height: 78px;
+
     background: linear-gradient(135deg, #34d058, #28a745);
     color: white;
-    border: 2px solid rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(8px);
-    border-radius: 18px;
 
-    padding: 18px 45px;
+    border: 2px solid rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+
+    padding: 16px 20px;
     cursor: pointer;
-    transition: all 0.3s ease;
+
     font-family: 'Nunito', sans-serif;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 
     box-shadow:
-        0 0 12px rgba(52, 208, 88, 0.45),
-        0 0 25px rgba(40, 167, 69, 0.25);
+        0 0 14px rgba(52, 208, 88, 0.45),
+        0 0 30px rgba(40, 167, 69, 0.22);
 
     animation: yesPulse 2s infinite;
+
+    transform: scale(1);
+    transform-origin: center;
 }
 
 #yes-btn::before {
@@ -391,6 +423,12 @@ h1 {
 
     .prayash-name {
         font-size: 2.2rem;
+    }
+
+    #love-photo {
+    max-width: 240px;
+    height: 280px;
+    border-radius: 18px;
     }
 
     #cat-gif {
