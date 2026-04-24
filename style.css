@@ -206,22 +206,50 @@ h1 {
 }
 
 .name-marquee {
-    position: fixed;
-    top: 10px;
+    position: relative;
+    z-index: 2;
     width: 100%;
-    z-index: 999;
+    margin-bottom: 20px;
     text-align: center;
-    pointer-events: auto;
 }
 
 .name-marquee marquee {
+    width: 80%;
+    margin: 0 auto;
     font-size: 2rem;
     font-weight: 900;
     font-family: 'Nunito', sans-serif;
     color: #d63384;
     text-shadow: 0 0 8px rgba(214, 51, 132, 0.4);
-    transition: all 0.3s ease;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.name-marquee marquee:hover {
+    color: #ff1493;
+    text-shadow:
+        0 0 10px #ff69b4,
+        0 0 20px #ff1493,
+        0 0 30px #ff85a2;
+    transform: scale(1.05);
+}.name-marquee {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.name-marquee marquee {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: 'Nunito', sans-serif;
+    color: #d63384;
+    text-shadow: 0 0 8px rgba(214, 51, 132, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .name-marquee marquee:hover {
