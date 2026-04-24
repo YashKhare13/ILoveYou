@@ -11,21 +11,21 @@ const gifStages = [
 
 const noMessages = [
     "No",
-    "Are you positive? 🤔",
-    "Pookie please... 🥺",
-    "If you say no, I will be really sad...",
-    "I will be very sad... 😢",
-    "Please??? 💔",
-    "Don't do this to me...",
-    "Last chance! 😭",
-    "You can't catch me anyway 😜"
+    "Sharma Ji, soch lo 😌",
+    "Itna attitude theek ni h 🥺",
+    "Sach m NOOOOOOO? 😐",
+    "Monty se influence ho kya 😒",
+    "Tmhare pass meri gandi wali photos h 😶",
+    "Last chance Madam 😤",
+    "Please Preeeeeeetoooooooo 🥺",
+    "<s>Y̶E̶S̶</s> YASH hi destiny h 💕"
 ]
 
 const yesTeasePokes = [
-    "try saying no first... I bet you want to know what happens 😏",
-    "go on, hit no... just once 👀",
-    "you're missing out 😈",
-    "click no, I dare you 😏"
+    "Areeeee waaahh, Turant itni aasani se maan rhi ho??? 😏",
+    "Lagta h mere pyaar m kuch zyada hi pagal h koi 👀",
+    "Bhai Sahab Game hi ni samjh re tum 😑😑😑",
+    "NO daba bhai NOOOOOOOOOOOO (Meri mehnat waste naa kar) 😣"
 ]
 
 let yesTeasedCount = 0
@@ -89,7 +89,7 @@ function handleNoClick() {
 
     // Cycle through guilt-trip messages
     const msgIndex = Math.min(noClickCount, noMessages.length - 1)
-    noBtn.textContent = noMessages[msgIndex]
+    noBtn.innerHTML = noMessages[msgIndex]
 
     // Grow the Yes button bigger each time
     const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize)
