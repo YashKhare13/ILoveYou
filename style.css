@@ -54,7 +54,7 @@ body {
     position: relative;
     z-index: 1;
     text-align: center;
-    padding: 40px 20px;
+    padding: 90px 20px 40px;
 }
 
 h1 {
@@ -203,4 +203,32 @@ h1 {
 .yes-container #cat-gif {
     width: 260px;
     height: 260px;
+}
+
+.name-marquee {
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    z-index: 999;
+    text-align: center;
+    pointer-events: auto;
+}
+
+.name-marquee marquee {
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: 'Nunito', sans-serif;
+    color: #d63384;
+    text-shadow: 0 0 8px rgba(214, 51, 132, 0.4);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.name-marquee marquee:hover {
+    color: #ff1493;
+    text-shadow:
+        0 0 10px #ff69b4,
+        0 0 20px #ff1493,
+        0 0 30px #ff85a2;
+    transform: scale(1.05);
 }
