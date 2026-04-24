@@ -18,7 +18,7 @@ const noMessages = [
     "Tmhare pass meri gandi wali photos h 😶",
     "Last chance Madam 😤",
     "Please Preeeeeeetoooooooo 🥺",
-    "<s>Y̶E̶S̶</s> YASH hi destiny h 💕"
+    "<s>YES</s> YASH hi destiny h 💍"
 ]
 
 const yesTeasePokes = [
@@ -93,9 +93,11 @@ function handleNoClick() {
 
     // Grow the Yes button bigger each time
     const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize)
-    yesBtn.style.fontSize = `${currentSize * 1.35}px`
-    const padY = Math.min(18 + noClickCount * 5, 60)
-    const padX = Math.min(45 + noClickCount * 10, 120)
+    const newSize = Math.min(currentSize * 1.2, 42)
+    yesBtn.style.fontSize = `${newSize}px`
+
+    const padY = Math.min(18 + noClickCount * 3, 35)
+    const padX = Math.min(45 + noClickCount * 6, 80)
     yesBtn.style.padding = `${padY}px ${padX}px`
 
     // Shrink No button to contrast
@@ -109,9 +111,9 @@ function handleNoClick() {
     swapGif(gifStages[gifIndex])
 
     // Runaway starts at click 5
-    if (noClickCount >= 5 && !runawayEnabled) {
-        enableRunaway()
-        runawayEnabled = true
+    if (noClickCount >= 8 && !runawayEnabled) {
+    enableRunaway()
+    runawayEnabled = true
     }
 }
 
