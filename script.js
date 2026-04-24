@@ -110,11 +110,11 @@ function handleNoClick() {
     noBtn.innerHTML = noMessages[msgIndex]
 
     // Mobile-friendly YES button growth till final click
-const scaleValue = Math.min(1 + (noClickCount * 0.08), 1.45)
+const widthPercent = Math.min(45 + (noClickCount * 8), 100)
 
-yesBtn.style.transform = `scale(${scaleValue})`
-yesBtn.style.maxWidth = "260px"
-yesBtn.style.width = "auto"
+yesBtn.style.width = `${widthPercent}%`
+yesBtn.style.maxWidth = "100%"
+yesBtn.style.transform = "scale(1)"
 yesBtn.style.whiteSpace = "normal"
 yesBtn.style.wordBreak = "break-word"
 yesBtn.style.flexShrink = "0"
