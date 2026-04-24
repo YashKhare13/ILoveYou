@@ -10,7 +10,8 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 20px;
     overflow: hidden;
     background-image:
         radial-gradient(circle at 15% 85%, #ffb3c1 0%, transparent 40%),
@@ -54,7 +55,10 @@ body {
     position: relative;
     z-index: 1;
     text-align: center;
-    padding: 90px 20px 40px;
+    padding: 20px 15px 25px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 h1 {
