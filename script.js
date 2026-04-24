@@ -9,6 +9,17 @@ const gifStages = [
     "https://media1.tenor.com/m/uDugCXK4vI4AAAAC/chiikawa-hachiware.gif"  // 7 crying runaway
 ]
 
+const photoStages = [
+    "images/photo1.jpg",
+    "images/photo2.jpg",
+    "images/photo3.jpg",
+    "images/photo4.jpg",
+    "images/photo5.jpg",
+    "images/photo6.jpg",
+    "images/photo7.jpg",
+    "images/photo8.jpg"
+]
+
 const noMessages = [
     "No",
     "Sharma Ji, soch lo 😌",
@@ -35,6 +46,7 @@ let runawayEnabled = false
 let musicPlaying = true
 
 const catGif = document.getElementById('cat-gif')
+const lovePhoto = document.getElementById('love-photo')
 const yesBtn = document.getElementById('yes-btn')
 const noBtn = document.getElementById('no-btn')
 const music = document.getElementById('bg-music')
@@ -92,17 +104,14 @@ function handleNoClick() {
     noBtn.innerHTML = noMessages[msgIndex]
 
     // Mobile-friendly YES button growth till final click
-    const newFontSize = Math.min(24 + noClickCount * 4, 56)
-    yesBtn.style.fontSize = `${newFontSize}px`
+const scaleValue = Math.min(1 + (noClickCount * 0.08), 1.45)
 
-    const padY = Math.min(18 + noClickCount * 2, 40)
-    const padX = Math.min(45 + noClickCount * 5, 95)
-    yesBtn.style.padding = `${padY}px ${padX}px`
-
-    // Prevent button from breaking layout
-    yesBtn.style.maxWidth = "90vw"
-    yesBtn.style.whiteSpace = "normal"
-    yesBtn.style.wordBreak = "break-word"
+yesBtn.style.transform = `scale(${scaleValue})`
+yesBtn.style.maxWidth = "88vw"
+yesBtn.style.width = "min(320px, 88vw)"
+yesBtn.style.whiteSpace = "normal"
+yesBtn.style.wordBreak = "break-word"
+yesBtn.style.flexShrink = "0"
 
     // Shrink No button to contrast
     if (noClickCount >= 2) {
@@ -113,6 +122,10 @@ function handleNoClick() {
     // Swap cat GIF through stages
     const gifIndex = Math.min(noClickCount, gifStages.length - 1)
     swapGif(gifStages[gifIndex])
+
+    // Pictures changes
+    const photoIndex = Math.min(noClickCount, photoStages.length - 1)
+    swapPhoto(photoStages[photoIndex])
 
     // Runaway starts at click 5
     if (noClickCount >= 8 && !runawayEnabled) {
@@ -129,23 +142,57 @@ function swapGif(src) {
     }, 200)
 }
 
+function swapPhoto(src) {
+    lovePhoto.style.opacity = '0'
+
+    setTimeout(() => {
+        lovePhoto.src = src
+        lovePhoto.style.opacity = '1'
+    }, 200)
+}
+
 function enableRunaway() {
-    noBtn.addEventListener('mouseover', runAway)
-    noBtn.addEventListener('touchstart', runAway, { passive: true })
+    noBtn.style.transition = "all 0.18s ease"
+    noBtn.style.position = "fixed"
+    noBtn.style.zIndex = "999"
+
+    noBtn.addEventListener("mouseenter", runAway)
+
+    noBtn.addEventListener("touchstart", function (e) {
+        e.preventDefault()
+        runAway()
+    }, { passive: false })
+
+    noBtn.addEventListener("click", function (e) {
+        e.preventDefault()
+        runAway()
+    })
+
+    // dramatic first escape
+    runAway()
 }
 
 function runAway() {
-    const margin = 20
-    const btnW = noBtn.offsetWidth
-    const btnH = noBtn.offsetHeight
-    const maxX = window.innerWidth - btnW - margin
-    const maxY = window.innerHeight - btnH - margin
+    const safeMargin = 30
 
-    const randomX = Math.random() * maxX + margin / 2
-    const randomY = Math.random() * maxY + margin / 2
+    const btnWidth = noBtn.offsetWidth
+    const btnHeight = noBtn.offsetHeight
 
-    noBtn.style.position = 'fixed'
+    const maxX = window.innerWidth - btnWidth - safeMargin
+    const maxY = window.innerHeight - btnHeight - safeMargin
+
+    const randomX = Math.max(
+        safeMargin,
+        Math.random() * maxX
+    )
+
+    const randomY = Math.max(
+        safeMargin,
+        Math.random() * maxY
+    )
+
+    noBtn.style.position = "fixed"
     noBtn.style.left = `${randomX}px`
     noBtn.style.top = `${randomY}px`
-    noBtn.style.zIndex = '50'
+    noBtn.style.zIndex = "999"
 }
