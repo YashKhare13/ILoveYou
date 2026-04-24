@@ -21,6 +21,11 @@ const photoStages = [
     "images/photo8.jpg"
 ]
 
+photoStages.forEach(src => {
+    const img = new Image()
+    img.src = src
+})
+
 const noMessages = [
     "No",
     "Sharma Ji, soch lo 😌",
@@ -144,14 +149,21 @@ function swapGif(src) {
 }
 
 function swapPhoto(src) {
-    lovePhoto.style.opacity = "0"
-    lovePhoto.style.transform = "scale(0.96)"
+    if (lovePhoto.src.includes(src)) return
 
-    setTimeout(() => {
-        lovePhoto.src = src
-        lovePhoto.style.opacity = "1"
-        lovePhoto.style.transform = "scale(1)"
-    }, 220)
+    const nextImage = new Image()
+    nextImage.src = src
+
+    nextImage.onload = () => {
+        lovePhoto.style.opacity = "0"
+        lovePhoto.style.transform = "scale(0.96)"
+
+        setTimeout(() => {
+            lovePhoto.src = src + "?v=" + new Date().getTime()
+            lovePhoto.style.opacity = "1"
+            lovePhoto.style.transform = "scale(1)"
+        }, 180)
+    }
 }
 
 function enableRunaway() {
