@@ -214,49 +214,74 @@ h1 {
 }
 
 .name-marquee marquee {
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
-    font-size: 2rem;
-    font-weight: 900;
+    padding: 10px 0;
+    border-radius: 20px;
+    font-size: 1.6rem;
+    font-weight: 800;
     font-family: 'Nunito', sans-serif;
-    color: #d63384;
-    text-shadow: 0 0 8px rgba(214, 51, 132, 0.4);
+    letter-spacing: 1px;
+    color: #b30059;
     cursor: pointer;
+    transition: all 0.4s ease;
+
+    background: linear-gradient(
+        90deg,
+        #ffe0ec,
+        #ffd6e8,
+        #fff0f5,
+        #ffd6e8,
+        #ffe0ec
+    );
+
+    background-size: 300% 300%;
+
+    box-shadow:
+        0 0 15px rgba(255, 105, 180, 0.25),
+        0 0 30px rgba(255, 20, 147, 0.15);
+
+    text-shadow:
+        0 0 6px rgba(255,255,255,0.8);
+
+    animation: glossyFlow 6s ease infinite;
+}
+
+.prayash-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    font-weight: normal;
+    color: #d63384;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.9),
+        0 0 20px rgba(255,105,180,0.5),
+        0 0 35px rgba(255,20,147,0.4);
+
     transition: all 0.3s ease;
 }
 
 .name-marquee marquee:hover {
-    color: #ff1493;
-    text-shadow:
-        0 0 10px #ff69b4,
-        0 0 20px #ff1493,
-        0 0 30px #ff85a2;
-    transform: scale(1.05);
-}.name-marquee {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    margin-bottom: 20px;
-    text-align: center;
+    transform: scale(1.03);
 }
 
-.name-marquee marquee {
-    width: 80%;
-    margin: 0 auto;
-    font-size: 2rem;
-    font-weight: 900;
-    font-family: 'Nunito', sans-serif;
-    color: #d63384;
-    text-shadow: 0 0 8px rgba(214, 51, 132, 0.4);
-    cursor: pointer;
-    transition: all 0.3s ease;
+.name-marquee marquee:hover .prayash-name {
+    color: #ff1493;
+
+    text-shadow:
+        0 0 12px #fff,
+        0 0 25px #ff69b4,
+        0 0 40px #ff1493;
 }
 
-.name-marquee marquee:hover {
-    color: #ff1493;
-    text-shadow:
-        0 0 10px #ff69b4,
-        0 0 20px #ff1493,
-        0 0 30px #ff85a2;
-    transform: scale(1.05);
+@keyframes glossyFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
